@@ -59,7 +59,7 @@ const Index = () => {
   const products: Product[] = [
     {
       id: 1,
-      name: 'Говядина халяль премиум',
+      name: 'Говядина халяль отборная',
       price: 890,
       category: 'meat',
       image: '/img/52be4405-78cf-4286-b5ef-bba710c5d16f.jpg',
@@ -140,7 +140,7 @@ const Index = () => {
     },
     {
       id: 10,
-      name: 'Рис басмати премиум',
+      name: 'Рис басмати отборный',
       price: 240,
       category: 'grains',
       image: '/img/6ac4ec7a-f36b-49a6-9831-fd815337f0f8.jpg',
@@ -223,16 +223,16 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
       {/* Header */}
-      <header className="bg-white/90 backdrop-blur-md border-b border-warm-gold/20 sticky top-0 z-50">
+      <header className="bg-white/90 backdrop-blur-md border-b border-ocean-blue/20 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="text-2xl">🕌</div>
               <div>
-                <h1 className="text-2xl font-bold text-halal-green">Халяль Маркет</h1>
-                <p className="text-sm text-muted-foreground">Восточные продукты премиум качества</p>
+                <h1 className="text-2xl font-bold text-purple-deep font-heading">Халяль Маркет</h1>
+                <p className="text-sm text-muted-foreground font-body">Восточные продукты высокого качества</p>
               </div>
             </div>
             
@@ -250,17 +250,17 @@ const Index = () => {
                 </SheetTrigger>
                 <SheetContent>
                   <SheetHeader>
-                    <SheetTitle>Корзина</SheetTitle>
+                    <SheetTitle className="font-heading">Корзина</SheetTitle>
                   </SheetHeader>
                   <div className="mt-6 space-y-4">
                     {cart.length === 0 ? (
-                      <p className="text-center text-muted-foreground py-8">Корзина пуста</p>
+                      <p className="text-center text-muted-foreground py-8 font-body">Корзина пуста</p>
                     ) : (
                       <>
                         {cart.map(item => (
                           <div key={item.id} className="flex items-center justify-between p-3 border rounded-lg">
                             <div className="flex-1">
-                              <h4 className="font-medium">{item.name}</h4>
+                              <h4 className="font-medium font-body">{item.name}</h4>
                               <p className="text-sm text-muted-foreground">{item.price} ₽</p>
                             </div>
                             <div className="flex items-center space-x-2">
@@ -283,13 +283,13 @@ const Index = () => {
                           </div>
                         ))}
                         <Separator />
-                        <div className="flex justify-between font-semibold">
+                        <div className="flex justify-between font-semibold font-body">
                           <span>Итого:</span>
                           <span>{getTotalPrice()} ₽</span>
                         </div>
                         <div className="space-y-4">
                           <div className="grid w-full max-w-sm items-center gap-1.5">
-                            <Label htmlFor="name">Имя</Label>
+                            <Label htmlFor="name" className="font-body">Имя</Label>
                             <Input
                               id="name"
                               value={orderForm.name}
@@ -297,7 +297,7 @@ const Index = () => {
                             />
                           </div>
                           <div className="grid w-full max-w-sm items-center gap-1.5">
-                            <Label htmlFor="phone">Телефон</Label>
+                            <Label htmlFor="phone" className="font-body">Телефон</Label>
                             <Input
                               id="phone"
                               value={orderForm.phone}
@@ -305,7 +305,7 @@ const Index = () => {
                             />
                           </div>
                           <div className="grid w-full max-w-sm items-center gap-1.5">
-                            <Label>Способ получения</Label>
+                            <Label className="font-body">Способ получения</Label>
                             <Select value={orderForm.deliveryType} onValueChange={(value) => setOrderForm(prev => ({ ...prev, deliveryType: value }))}>
                               <SelectTrigger>
                                 <SelectValue />
@@ -318,7 +318,7 @@ const Index = () => {
                           </div>
                           {orderForm.deliveryType === 'delivery' && (
                             <div className="grid w-full max-w-sm items-center gap-1.5">
-                              <Label htmlFor="address">Адрес доставки</Label>
+                              <Label htmlFor="address" className="font-body">Адрес доставки</Label>
                               <Textarea
                                 id="address"
                                 value={orderForm.address}
@@ -340,26 +340,26 @@ const Index = () => {
                 <SheetTrigger asChild>
                   <Button variant="outline" size="sm">
                     <Icon name="User" size={20} />
-                    Личный кабинет
+                    <span className="font-body">Личный кабинет</span>
                   </Button>
                 </SheetTrigger>
                 <SheetContent>
                   <SheetHeader>
-                    <SheetTitle>Личный кабинет</SheetTitle>
+                    <SheetTitle className="font-heading">Личный кабинет</SheetTitle>
                   </SheetHeader>
                   <Tabs defaultValue="profile" className="mt-6">
                     <TabsList className="grid w-full grid-cols-2">
-                      <TabsTrigger value="profile">Профиль</TabsTrigger>
-                      <TabsTrigger value="orders">Заказы</TabsTrigger>
+                      <TabsTrigger value="profile" className="font-body">Профиль</TabsTrigger>
+                      <TabsTrigger value="orders" className="font-body">Заказы</TabsTrigger>
                     </TabsList>
                     <TabsContent value="profile" className="space-y-4">
                       <div className="space-y-4">
                         <div>
-                          <Label>Имя</Label>
+                          <Label className="font-body">Имя</Label>
                           <Input value={user.name} onChange={(e) => setUser(prev => ({ ...prev, name: e.target.value }))} />
                         </div>
                         <div>
-                          <Label>Email</Label>
+                          <Label className="font-body">Email</Label>
                           <Input value={user.email} onChange={(e) => setUser(prev => ({ ...prev, email: e.target.value }))} />
                         </div>
                         <Button>Сохранить изменения</Button>
@@ -370,16 +370,16 @@ const Index = () => {
                         <Card key={order.id}>
                           <CardHeader className="pb-2">
                             <div className="flex justify-between items-center">
-                              <CardTitle className="text-sm">Заказ #{order.id}</CardTitle>
+                              <CardTitle className="text-sm font-heading">Заказ #{order.id}</CardTitle>
                               <Badge variant={order.status === 'Доставлен' ? 'default' : 'secondary'}>
                                 {order.status}
                               </Badge>
                             </div>
-                            <CardDescription>{order.date} • {order.deliveryType}</CardDescription>
+                            <CardDescription className="font-body">{order.date} • {order.deliveryType}</CardDescription>
                           </CardHeader>
                           <CardFooter>
                             <div className="text-right">
-                              <p className="font-semibold">{order.total} ₽</p>
+                              <p className="font-semibold font-body">{order.total} ₽</p>
                             </div>
                           </CardFooter>
                         </Card>
@@ -395,15 +395,15 @@ const Index = () => {
 
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
-        <section className="text-center mb-12 py-12 bg-gradient-to-r from-warm-gold/10 to-halal-green/10 rounded-2xl">
+        <section className="text-center mb-12 py-12 bg-gradient-to-r from-ocean-blue/10 to-mint-green/10 rounded-2xl">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-4xl font-bold text-halal-green mb-4">
+            <h2 className="text-4xl font-bold text-purple-deep mb-4 font-heading">
               🌙 Добро пожаловать в Халяль Маркет
             </h2>
-            <p className="text-lg text-muted-foreground mb-6">
-              Премиальные халяльные продукты и восточные деликатесы с доставкой на дом
+            <p className="text-lg text-muted-foreground mb-6 font-body">
+              Качественные халяльные продукты и восточные деликатесы с доставкой на дом
             </p>
-            <div className="flex justify-center space-x-8 text-sm text-muted-foreground">
+            <div className="flex justify-center space-x-8 text-sm text-muted-foreground font-body">
               <div className="flex items-center space-x-2">
                 <Icon name="ShieldCheck" size={16} />
                 <span>100% Халяль</span>
@@ -414,7 +414,7 @@ const Index = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Icon name="Star" size={16} />
-                <span>Премиум качество</span>
+                <span>Высокое качество</span>
               </div>
             </div>
           </div>
@@ -431,7 +431,7 @@ const Index = () => {
                 className="flex items-center space-x-2"
               >
                 <Icon name={category.icon as any} size={16} />
-                <span>{category.name}</span>
+                <span className="font-body">{category.name}</span>
               </Button>
             ))}
           </div>
@@ -450,20 +450,20 @@ const Index = () => {
               </div>
               <CardHeader className="pb-2">
                 <div className="flex justify-between items-start">
-                  <CardTitle className="text-lg">{product.name}</CardTitle>
+                  <CardTitle className="text-lg font-heading">{product.name}</CardTitle>
                   {product.isHalal && (
-                    <Badge variant="secondary" className="bg-halal-green/10 text-halal-green">
+                    <Badge variant="secondary" className="bg-mint-green/10 text-mint-green">
                       ✓ Халяль
                     </Badge>
                   )}
                 </div>
-                <CardDescription className="text-sm">{product.description}</CardDescription>
+                <CardDescription className="text-sm font-body">{product.description}</CardDescription>
               </CardHeader>
               <CardFooter className="flex justify-between items-center">
-                <span className="text-xl font-bold text-primary">{product.price} ₽</span>
+                <span className="text-xl font-bold text-primary font-body">{product.price} ₽</span>
                 <Button onClick={() => addToCart(product)} size="sm">
                   <Icon name="Plus" size={16} />
-                  В корзину
+                  <span className="font-body">В корзину</span>
                 </Button>
               </CardFooter>
             </Card>
@@ -473,30 +473,30 @@ const Index = () => {
         {/* About Section */}
         <section className="mt-16 py-12 bg-white/50 rounded-2xl">
           <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-2xl font-bold text-halal-green mb-6">О нашем магазине</h3>
+            <h3 className="text-2xl font-bold text-purple-deep mb-6 font-heading">О нашем магазине</h3>
             <div className="grid md:grid-cols-3 gap-8 text-sm">
               <div>
                 <div className="text-2xl mb-2">🥩</div>
-                <h4 className="font-semibold mb-2">Только халяль продукция</h4>
-                <p className="text-muted-foreground">Все наши продукты имеют соответствующие сертификаты качества</p>
+                <h4 className="font-semibold mb-2 font-heading">Только халяль продукция</h4>
+                <p className="text-muted-foreground font-body">Все наши продукты имеют соответствующие сертификаты качества</p>
               </div>
               <div>
                 <div className="text-2xl mb-2">👨‍🍳</div>
-                <h4 className="font-semibold mb-2">Собственная кухня</h4>
-                <p className="text-muted-foreground">Готовим традиционные восточные блюда по семейным рецептам</p>
+                <h4 className="font-semibold mb-2 font-heading">Собственная кухня</h4>
+                <p className="text-muted-foreground font-body">Готовим традиционные восточные блюда по семейным рецептам</p>
               </div>
               <div>
                 <div className="text-2xl mb-2">🚚</div>
-                <h4 className="font-semibold mb-2">Доставка и самовывоз</h4>
-                <p className="text-muted-foreground">Удобная доставка по городу или самовывоз из нашего магазина</p>
+                <h4 className="font-semibold mb-2 font-heading">Доставка и самовывоз</h4>
+                <p className="text-muted-foreground font-body">Удобная доставка по городу или самовывоз из нашего магазина</p>
               </div>
             </div>
             
-            <div className="mt-8 p-6 bg-warm-gold/10 rounded-lg">
-              <h4 className="font-semibold text-halal-green mb-2">📍 Контакты</h4>
-              <p className="text-sm text-muted-foreground mb-1">г. Москва, ул. Восточная, д. 15</p>
-              <p className="text-sm text-muted-foreground mb-1">📞 +7 (495) 123-45-67</p>
-              <p className="text-sm text-muted-foreground">⏰ Ежедневно с 9:00 до 21:00</p>
+            <div className="mt-8 p-6 bg-ocean-blue/10 rounded-lg">
+              <h4 className="font-semibold text-purple-deep mb-2 font-heading">📍 Контакты</h4>
+              <p className="text-sm text-muted-foreground mb-1 font-body">г. Москва, ул. Восточная, д. 15</p>
+              <p className="text-sm text-muted-foreground mb-1 font-body">📞 +7 (495) 123-45-67</p>
+              <p className="text-sm text-muted-foreground font-body">⏰ Ежедневно с 9:00 до 21:00</p>
             </div>
           </div>
         </section>
