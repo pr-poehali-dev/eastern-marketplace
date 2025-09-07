@@ -223,16 +223,16 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-desert-sand/20 to-sunset-orange/30" style={{ backgroundImage: `linear-gradient(45deg, rgba(252, 211, 77, 0.1) 0%, rgba(249, 115, 22, 0.2) 100%), url('https://cdn.poehali.dev/files/0d60cf81-1253-44bc-90d1-7715c12cfd4e.jpeg')`, backgroundSize: 'cover', backgroundBlendMode: 'multiply' }}>
       {/* Header */}
-      <header className="bg-white/90 backdrop-blur-md border-b border-ocean-blue/20 sticky top-0 z-50">
+      <header className="bg-gradient-to-r from-islamic-gold/95 to-golden-amber/95 backdrop-blur-md border-b border-warm-terracotta/30 sticky top-0 z-50" style={{ backgroundImage: `url('https://cdn.poehali.dev/files/ad07a1e9-24a3-4d83-acc2-69831d9f77f5.jpeg')`, backgroundSize: 'cover', backgroundBlendMode: 'overlay' }}>
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="text-2xl">🕌</div>
               <div>
-                <h1 className="text-2xl font-bold text-purple-deep font-heading">Халяль Маркет</h1>
-                <p className="text-sm text-muted-foreground font-body">Восточные продукты высокого качества</p>
+                <h1 className="text-2xl font-bold text-warm-terracotta font-heading drop-shadow-md">Халяль Маркет</h1>
+                <p className="text-sm text-warm-terracotta/80 font-body drop-shadow-sm">Восточные продукты высокого качества</p>
               </div>
             </div>
             
@@ -395,9 +395,9 @@ const Index = () => {
 
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
-        <section className="text-center mb-12 py-12 bg-gradient-to-r from-ocean-blue/10 to-mint-green/10 rounded-2xl">
+        <section className="text-center mb-12 py-12 bg-gradient-to-r from-islamic-gold/20 to-golden-amber/30 rounded-2xl border border-desert-sand/50 backdrop-blur-sm">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-4xl font-bold text-purple-deep mb-4 font-heading">
+            <h2 className="text-4xl font-bold text-warm-terracotta mb-4 font-heading drop-shadow-lg">
               🌙 Добро пожаловать в Халяль Маркет
             </h2>
             <p className="text-lg text-muted-foreground mb-6 font-body">
@@ -452,7 +452,7 @@ const Index = () => {
                 <div className="flex justify-between items-start">
                   <CardTitle className="text-lg font-heading">{product.name}</CardTitle>
                   {product.isHalal && (
-                    <Badge variant="secondary" className="bg-mint-green/10 text-mint-green">
+                    <Badge variant="secondary" className="bg-mosque-green/20 text-mosque-green border border-mosque-green/30">
                       ✓ Халяль
                     </Badge>
                   )}
@@ -473,7 +473,7 @@ const Index = () => {
         {/* About Section */}
         <section className="mt-16 py-12 bg-white/50 rounded-2xl">
           <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-2xl font-bold text-purple-deep mb-6 font-heading">О нашем магазине</h3>
+            <h3 className="text-2xl font-bold text-warm-terracotta mb-6 font-heading drop-shadow-md">О нашем магазине</h3>
             <div className="grid md:grid-cols-3 gap-8 text-sm">
               <div>
                 <div className="text-2xl mb-2">🥩</div>
@@ -492,8 +492,8 @@ const Index = () => {
               </div>
             </div>
             
-            <div className="mt-8 p-6 bg-ocean-blue/10 rounded-lg">
-              <h4 className="font-semibold text-purple-deep mb-2 font-heading">📍 Контакты</h4>
+            <div className="mt-8 p-6 bg-gradient-to-br from-islamic-gold/20 to-golden-amber/30 rounded-lg border border-desert-sand/50">
+              <h4 className="font-semibold text-warm-terracotta mb-2 font-heading">📍 Контакты</h4>
               <p className="text-sm text-muted-foreground mb-1 font-body">г. Москва, ул. Восточная, д. 15</p>
               <p className="text-sm text-muted-foreground mb-1 font-body">📞 +7 (495) 123-45-67</p>
               <p className="text-sm text-muted-foreground font-body">⏰ Ежедневно с 9:00 до 21:00</p>
